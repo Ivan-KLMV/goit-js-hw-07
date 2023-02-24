@@ -5,6 +5,8 @@ console.log(galleryItems);
 
 const galleryWrapper = document.querySelector('.gallery');
 
+galleryWrapper.insertAdjacentHTML('afterbegin', createGallary(galleryItems));
+
 function createGallary(items) {
   return items
     .map(
@@ -16,20 +18,4 @@ function createGallary(items) {
     .join('');
 }
 
-galleryWrapper.insertAdjacentHTML('afterbegin', createGallary(galleryItems));
-
-galleryWrapper.addEventListener('click', onImageClick);
-
-function onImageClick(evt) {
-  if (!evt.target.classList.contains('gallery__image')) {
-    return;
-  }
-  evt.preventDefault();
-
-  console.log(evt.target);
-  new SimpleLightbox('.gallery a');
-}
-
-// function showImageInModal() {
-//   new SimpleLightbox('.gallery a');
-// }
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
