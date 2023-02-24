@@ -37,10 +37,10 @@ galleryWrapper.insertAdjacentHTML('afterbegin', createGallary(galleryItems));
 galleryWrapper.addEventListener('click', onImageClick);
 
 function onImageClick(evt) {
-  evt.preventDefault();
   if (!evt.target.classList.contains('gallery__image')) {
     return;
   }
+  evt.preventDefault();
 
   showImageInModal(evt);
 }
